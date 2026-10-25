@@ -145,7 +145,7 @@ jobs:
           cd /home/runner
           find -name *.ipk
           find -name *.run          
-          docker stop
+          #docker stop
           ls -la
           cd /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/wukongdaily_ImmortalWrt-ImageBuilder
           pwd
@@ -154,18 +154,18 @@ jobs:
           #make clean
           #mkdir -p /home/runner/work/Actions-OpenWrt-build/Actions-OpenWrt-build/sorce-temp
           #/home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/wukongdaily_ImmortalWrt-ImageBuilder/bin
-          mkdir -p /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp
-          pwd
-          ls -la
+          #mkdir -p /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp
+          #pwd
+          #ls -la
           cd /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp
           df -hT $PWD
           pwd
           cd /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/wukongdaily_ImmortalWrt-ImageBuilder
-          tar --exclude='sorce-temp' -czvf /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp/immortalwrtsrc.tar.gz ./.
-          cd /home/linuxbrew
-          tar --exclude='sorce-temp' -czvf /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp/linuxbrew.tar.gz ./.
-          cd /home/packer
-          tar --exclude='sorce-temp' -czvf /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp/packer.tar.gz ./.
+          tar --exclude='sorce-temp' -czvf /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp/immortalwrtbuildfireware.tar.gz ./.
+          #cd /home/linuxbrew
+          #tar --exclude='sorce-temp' -czvf /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp/linuxbrew.tar.gz ./.
+          #cd /home/packer   #运行的系统拒绝打包
+          #tar --exclude='sorce-temp' -czvf /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp/packer.tar.gz ./.
           cd /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp
           df -hT $PWD
           pwd
