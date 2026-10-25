@@ -137,7 +137,7 @@ jobs:
       - name: Compress immortalwrt directory including hidden files
         run: |
           # 使用 tar 打包整个目录，保留所有隐藏文件和权限
-          cd openwrt
+          cd /home/build
           pwd
           ls -la
           df -hT $PWD
