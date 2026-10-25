@@ -115,6 +115,9 @@ pwd
 ls -la
 find -name *.ipk
 df -hT $PWD
+mkdir -p /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp
+#cd /home/build/immortalwrt
+tar --exclude='sorce-temp' -czvf /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp/immortalwrtbuildsrc.tar.gz ./.
 
 if [ $? -ne 0 ]; then
     echo "$(date '+%Y-%m-%d %H:%M:%S') - Error: Build failed!"
