@@ -111,6 +111,11 @@ echo "$PACKAGES"
 
 make image PROFILE="generic" PACKAGES="$PACKAGES" FILES="/home/build/immortalwrt/files" ROOTFS_PARTSIZE=$PROFILE
 
+pwd
+ls -la
+find -name *.ipk
+df -hT $PWD
+
 if [ $? -ne 0 ]; then
     echo "$(date '+%Y-%m-%d %H:%M:%S') - Error: Build failed!"
     exit 1
