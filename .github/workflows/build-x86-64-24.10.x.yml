@@ -135,6 +135,7 @@ jobs:
           immortalwrt/imagebuilder:x86-64-openwrt-${luci_version} /bin/bash /home/build/immortalwrt/build.sh
           
       - name: Compress immortalwrt directory including hidden files
+        continue-on-error: true
         run: |
           # 使用 tar 打包整个目录，保留所有隐藏文件和权限
           pwd
