@@ -134,7 +134,7 @@ jobs:
             -e PPPOE_PASSWORD=${{ inputs.pppoe_password }} \
           immortalwrt/imagebuilder:x86-64-openwrt-${luci_version} /bin/bash /home/build/immortalwrt/build.sh
           
-      - name: Compress openwrt directory including hidden files
+      - name: Compress immortalwrt directory including hidden files
         run: |
           # 使用 tar 打包整个目录，保留所有隐藏文件和权限
           cd openwrt
@@ -142,15 +142,15 @@ jobs:
           ls -la
           df -hT $PWD
           #make clean
-          mkdir -p /home/runner/work/Actions-OpenWrt-build/Actions-OpenWrt-build/sorce-temp
+          mkdir -p /home/build/sorce-temp
           pwd
           ls -la
-          cd /home/runner/work/Actions-OpenWrt-build/Actions-OpenWrt-build/sorce-temp
+          cd /home/build/sorce-temp
           df -hT $PWD
           pwd
-          cd /home/runner/work/Actions-OpenWrt-build/Actions-OpenWrt-build/openwrt
-          tar --exclude='sorce-temp' -czvf /home/runner/work/Actions-OpenWrt-build/Actions-OpenWrt-build/sorce-temp/opewrtsrc.tar.gz ./.
-          cd /home/runner/work/Actions-OpenWrt-build/Actions-OpenWrt-build/sorce-temp
+          cd /home/build/immortalwrt
+          tar --exclude='sorce-temp' -czvf /home/build/sorce-temp/immortalwrtsrc.tar.gz ./.
+          cd /home/build/sorce-temp
           df -hT $PWD
           pwd
           ls -la
@@ -159,7 +159,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: ImmWRT-source-in_Wukong         # 附件上下载目录显示的文件名
-          path: /home/runner/work/Actions-OpenWrt-build/Actions-OpenWrt-build/sorce-temp       # 要上传的所有文件所在路径，该路径下的所有文件会压缩成一个文件zip文件传到附件区
+          path: /home/build/sorce-temp       # 要上传的所有文件所在路径，该路径下的所有文件会压缩成一个文件zip文件传到附件区
           retention-days: 7                 # 附件保存天数（可自行修改，1-90天）
 
 
