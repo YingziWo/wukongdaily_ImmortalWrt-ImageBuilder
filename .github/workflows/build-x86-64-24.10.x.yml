@@ -119,6 +119,7 @@ jobs:
           include_docker="${{ github.event.inputs.include_docker }}"
           luci_version="${{ github.event.inputs.luci_version }}"
           echo "Building for rootfs_size: $profile"
+          mkdir -p /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp
           docker run --rm -i \
             --user root \
             -v "${{ github.workspace }}/bin:/home/build/immortalwrt/bin" \
@@ -127,6 +128,7 @@ jobs:
             -v "${{ github.workspace }}/x86-64/imm.config:/home/build/immortalwrt/.config" \
             -v "${{ github.workspace }}/shell:/home/build/immortalwrt/shell" \
             -v "${{ github.workspace }}/x86-64/build24.sh:/home/build/immortalwrt/build.sh" \
+            -v "/home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp:/home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp" \
             -e PROFILE=$ROOTFS_SIZE \
             -e INCLUDE_DOCKER=$include_docker \
             -e ENABLE_PPPOE=${{ inputs.enable_pppoe }} \
