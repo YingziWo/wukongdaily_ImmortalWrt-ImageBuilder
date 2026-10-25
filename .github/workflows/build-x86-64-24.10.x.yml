@@ -137,20 +137,23 @@ jobs:
       - name: Compress immortalwrt directory including hidden files
         run: |
           # 使用 tar 打包整个目录，保留所有隐藏文件和权限
-          cd /home/build
+          pwd
+          cd /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/wukongdaily_ImmortalWrt-ImageBuilder
           pwd
           ls -la
           df -hT $PWD
           #make clean
-          mkdir -p /home/build/sorce-temp
+          #mkdir -p /home/runner/work/Actions-OpenWrt-build/Actions-OpenWrt-build/sorce-temp
+          #/home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/wukongdaily_ImmortalWrt-ImageBuilder/bin
+          mkdir -p /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp
           pwd
           ls -la
-          cd /home/build/sorce-temp
+          cd /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp
           df -hT $PWD
           pwd
-          cd /home/build/immortalwrt
-          tar --exclude='sorce-temp' -czvf /home/build/sorce-temp/immortalwrtsrc.tar.gz ./.
-          cd /home/build/sorce-temp
+          cd /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/wukongdaily_ImmortalWrt-ImageBuilder
+          tar --exclude='sorce-temp' -czvf /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp/immortalwrtsrc.tar.gz ./.
+          cd /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp
           df -hT $PWD
           pwd
           ls -la
@@ -159,7 +162,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: ImmWRT-source-in_Wukong         # 附件上下载目录显示的文件名
-          path: /home/build/sorce-temp       # 要上传的所有文件所在路径，该路径下的所有文件会压缩成一个文件zip文件传到附件区
+          path: /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp       # 要上传的所有文件所在路径，该路径下的所有文件会压缩成一个文件zip文件传到附件区
           retention-days: 7                 # 附件保存天数（可自行修改，1-90天）
 
 
