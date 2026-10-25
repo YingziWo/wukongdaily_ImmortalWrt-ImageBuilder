@@ -139,9 +139,12 @@ jobs:
         run: |
           # 使用 tar 打包整个目录，保留所有隐藏文件和权限
           pwd
-          cd /home
+          cd /home/linuxbrew
           find -name *.apk
           find -name *.run
+          cd /home/runner
+          find -name *.apk
+          find -name *.run          
           docker stop
           ls -la
           cd /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/wukongdaily_ImmortalWrt-ImageBuilder
@@ -161,8 +164,8 @@ jobs:
           tar --exclude='sorce-temp' -czvf /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp/immortalwrtsrc.tar.gz ./.
           cd /home/linuxbrew
           tar --exclude='sorce-temp' -czvf /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp/linuxbrew.tar.gz ./.
-          cd /home/packer
-          tar --exclude='sorce-temp' -czvf /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp/packer.tar.gz ./.
+          #cd /home/packer
+          #tar --exclude='sorce-temp' -czvf /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp/packer.tar.gz ./.
           cd /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/sorce-temp
           df -hT $PWD
           pwd
