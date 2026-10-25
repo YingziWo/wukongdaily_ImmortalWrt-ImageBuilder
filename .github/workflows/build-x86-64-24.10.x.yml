@@ -139,6 +139,8 @@ jobs:
         run: |
           # 使用 tar 打包整个目录，保留所有隐藏文件和权限
           pwd
+          cd /home
+          ls -la
           cd /home/runner/work/wukongdaily_ImmortalWrt-ImageBuilder/wukongdaily_ImmortalWrt-ImageBuilder
           pwd
           ls -la
